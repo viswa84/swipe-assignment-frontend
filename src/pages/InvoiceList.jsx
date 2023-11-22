@@ -12,6 +12,7 @@ import { deleteInvoice } from "../redux/invoicesSlice";
 const InvoiceList = () => {
   const { invoiceList, getOneInvoice } = useInvoiceListData();
   const isListEmpty = invoiceList.length === 0;
+// console.log(invoiceList,'inlist')
   const [copyId, setCopyId] = useState("");
   const navigate = useNavigate();
   const handleCopyClick = () => {
@@ -42,6 +43,10 @@ const InvoiceList = () => {
                 <Link to="/create">
                   <Button variant="primary mb-2 mb-md-4">Create Invoice</Button>
                 </Link>
+                <Link to="/bulkedit">
+                  <Button variant="danger mb-2 mb-md-4">Bulk Edit</Button>
+                </Link>
+
 
                 <div className="d-flex gap-2">
                   <Button variant="dark mb-2 mb-md-4" onClick={handleCopyClick}>

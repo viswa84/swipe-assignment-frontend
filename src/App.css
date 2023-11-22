@@ -92,3 +92,74 @@ hr {
   -ms-user-select: none;
   user-select: none;
 }
+
+.table-container {
+  overflow-x: auto;
+  margin: 20px;
+  margin-top: 0px;
+  height: 80vh;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.mynav {
+  position: relative;
+  top: 0%;
+
+}
+.myheader {
+  position: absolute;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 5px !important
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #ddd !important ;
+  border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1 !important ;
+  border-radius: 5px;
+}
+
+.table-container {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #f1f1f1;
+}
+
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.table-header {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px; 
+  text-align: center;
+}
+
+.table-cell {
+  padding: 8px; 
+  border: 1px solid #ddd;
+  text-align: center;
+  position: relative;
+}
+
+.table-cell > div {
+  min-height: 16px; 
+  font-size: 14px; 
+}
+
+.table-cell[contentEditable="true"] {
+  border: 1px solid #4caf50; 
+  outline: none;
+  background-color: #f0f8ff; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px !important;
+}
+

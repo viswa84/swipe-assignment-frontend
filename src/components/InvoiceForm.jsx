@@ -14,6 +14,8 @@ import { addInvoice, updateInvoice } from "../redux/invoicesSlice";
 import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import generateRandomId from "../utils/generateRandomId";
 import { useInvoiceListData } from "../redux/hooks";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const InvoiceForm = () => {
   const dispatch = useDispatch();
@@ -157,17 +159,30 @@ const InvoiceForm = () => {
   };
 
   const handleAddInvoice = () => {
+    const tostobj = {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    };
     if (isEdit) {
       dispatch(updateInvoice({ id: params.id, updatedInvoice: formData }));
-      alert("Invoice updated successfuly 🥳");
+      toast.success("Invoice updated successfuly 🥳", tostobj);
     } else if (isCopy) {
       dispatch(addInvoice({ id: generateRandomId(), ...formData }));
-      alert("Invoice added successfuly 🥳");
+      toast.success("Invoice added successfuly 🥳", tostobj);
     } else {
       dispatch(addInvoice(formData));
-      alert("Invoice added successfuly 🥳");
+      toast("Invoice added successfuly 🥳", tostobj);
     }
-    navigate("/");
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
+    // navigate("/");
   };
 
   const handleCopyInvoice = () => {
@@ -185,6 +200,7 @@ const InvoiceForm = () => {
 
   return (
     <Form onSubmit={openModal}>
+      <ToastContainer />
       <div className="d-flex align-items-center">
         <BiArrowBack size={18} />
         <div className="fw-bold mt-1 mx-2 cursor-pointer">
